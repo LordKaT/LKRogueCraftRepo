@@ -1,0 +1,17 @@
+Old-style README. Wordwrap to 80 chars.
+
+This is a thing I created with SDL and libtcod. It's not done yet. I don't think it will ever really be finished. That's OK though, because it's just a small thing I like to tinker with.
+
+You'll need SDL 1.2.14 and libtcod 1.5.0.
+
+Sometime in the future you'll need LUA, too. Oh, and a strong stomach for terrible code.
+
+The goal of this project is simply to make a roguelike with a crafting element to it. Some really basic stuff doesn't work yet - like AI, combat, and proper dungeon generation - but I'm really proud of the dyanmic lighting system. How many other roguelikes out there have a dynamic lighting system?
+
+Why a dynamic lighting system? To make pure-stealth gameplay possible. With other roguelikes you have to eventually hack and slash your way through to the end, but I wanted to give players the option of possibly being completely stealthy without having to rely on dice rolls to get you through.
+
+Why crafting? Everyone is crafting nowadays. You can't get away from a game if it doesn't have crafting. I felt these crafting systems were too predictable and too bland - roguelikes are about fun, adventure, and bowing down to the RNG gods. So a "crafting" system exists (though shoddy at the moment) where players can combine two items into a third item that shares the attributes of each ... or, it creates something completely batshit insane, because that's what it does.
+
+These two elements, I think, will be fundamental to the gameplay of RogueCraft.
+
+Assuming, of course, I get around to adding gameplay to RogueCraft.

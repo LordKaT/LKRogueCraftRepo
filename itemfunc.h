@@ -1,0 +1,9 @@
+void itemFunc_Error(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_Empty(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_Floor(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_Ore(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_Stick(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_FireCrystal(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_Door(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_Torch(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_HiddenDoor(int iAction, int iX, int iY, void *vUserData);

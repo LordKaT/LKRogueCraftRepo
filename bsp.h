@@ -1,0 +1,1 @@
+void generateBSPtoMap(bool bCorridor);
