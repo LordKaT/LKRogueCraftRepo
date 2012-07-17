@@ -9,6 +9,7 @@
 #include "def.h"
 #include "globals.h"
 #include "structs.h"
+#include "console.h"
 
 void inventoryClear() {
 	for (int x = 76; x < 99; x++) {
@@ -123,8 +124,11 @@ void inventoryDel(sInventory **inventory, int iItemID, int iAmount) {
 			else {
 				// Actually remove it from the list
 				if (head->next == NULL) { // No other items, remove list.
-					delete(head);
+					head->m_iItem = 0;
+					head->m_iCount = 0;
+					delete head;
 					head = NULL;
+					*inventory = NULL;
 				}
 				else {
 					head->m_iItem = head->next->m_iItem;
@@ -132,7 +136,7 @@ void inventoryDel(sInventory **inventory, int iItemID, int iAmount) {
 					sInventory *temp = NULL;
 					if (head->next->next != NULL)
 						temp = head->next->next;
-					delete(head->next);
+					delete head->next;
 					head->next = temp;
 				}
 			}
@@ -148,7 +152,7 @@ void inventoryDel(sInventory **inventory, int iItemID, int iAmount) {
 			else {
 				// Actually remove it from the list
 				if (head->next->next == NULL) {
-					delete(head->next);
+					delete head->next;
 					head->next = NULL;
 				}
 				else {
@@ -157,7 +161,7 @@ void inventoryDel(sInventory **inventory, int iItemID, int iAmount) {
 					sInventory *temp = NULL;
 					if (head->next->next->next != NULL)
 						temp = head->next->next->next;
-					delete(head->next->next);
+					delete head->next->next;
 					head->next->next = temp;
 				}
 			}
@@ -191,8 +195,8 @@ int inventoryList(sInventory **inventory, int iPointer, int iOffset) {
 		for (int k = 33; k < 43; k++)
 			TCOD_console_put_char(NULL, j, k, 32, TCOD_BKGND_NONE);
 
-	if (*inventory == NULL) {
-		TCOD_console_print_left(NULL, 78, 33, TCOD_BKGND_NONE, "Nothing.");
+	if (head == NULL) {
+		TCOD_console_print_left(NULL, 78, 33, TCOD_BKGND_NONE, "Empty.");
 		return -1;
 	}
 

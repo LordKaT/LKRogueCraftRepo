@@ -12,11 +12,27 @@
 #include "items.h"
 #include "itemfunc.h"
 #include "inventory.h"
+#include "player.h"
 
 void playerInit() {
+	int iX = rand() % DEF_WORLD_X;
+	int iY = rand() % DEF_WORLD_Y;
+
 	g_ego.m_inventory = NULL;
 	g_ego.m_iVisibility = 0;
 	g_ego.m_fFOVDistance = 10.0f;
+
+	while (g_iWorld[iX][iY] != 0) {
+		iX = rand() % DEF_WORLD_X;
+		iY = rand() % DEF_WORLD_Y;
+	}
+
+	g_ego.m_stats.m_iWorldX = iX;
+	g_ego.m_stats.m_iWorldY = iY;
+	g_ego.m_stats.m_iWorldZ = 1;
+
+	playerCalcVisibility();
+
 	return;
 }
 
@@ -58,19 +74,20 @@ void playerStatsList() {
 	TCOD_console_put_char(NULL, 99, 15, 185, TCOD_BKGND_NONE);
 	TCOD_console_print_left(NULL, 78, 15, TCOD_BKGND_NONE, "Equipment");
 
-	TCOD_console_print_left(NULL, 76, 17, TCOD_BKGND_NONE, "Head:   %s", g_itemData[g_ego.m_equipment.m_iHead].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 18, TCOD_BKGND_NONE, "L Ear:  %s", g_itemData[g_ego.m_equipment.m_iEar_L].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 19, TCOD_BKGND_NONE, "R Ear:  %s", g_itemData[g_ego.m_equipment.m_iEar_R].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 20, TCOD_BKGND_NONE, "Face:   %s", g_itemData[g_ego.m_equipment.m_iFace].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 21, TCOD_BKGND_NONE, "Neck:   %s", g_itemData[g_ego.m_equipment.m_iNeck].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 22, TCOD_BKGND_NONE, "Back:   %s", g_itemData[g_ego.m_equipment.m_iBack].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 23, TCOD_BKGND_NONE, "Chest:  %s", g_itemData[g_ego.m_equipment.m_iChest].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 24, TCOD_BKGND_NONE, "Hands:  %s", g_itemData[g_ego.m_equipment.m_iHands].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 25, TCOD_BKGND_NONE, "Waist:  %s", g_itemData[g_ego.m_equipment.m_iWaist].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 26, TCOD_BKGND_NONE, "Legs:   %s", g_itemData[g_ego.m_equipment.m_iLegs].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 27, TCOD_BKGND_NONE, "Feet:   %s", g_itemData[g_ego.m_equipment.m_iFeet].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 28, TCOD_BKGND_NONE, "L Hand: %s", g_itemData[g_ego.m_equipment.m_iHand_L].m_stats.m_cName);
-	TCOD_console_print_left(NULL, 76, 29, TCOD_BKGND_NONE, "R Hand: %s", g_itemData[g_ego.m_equipment.m_iHand_R].m_stats.m_cName);
+
+	TCOD_console_print_left(NULL, 76, 17, TCOD_BKGND_NONE, "1) L Hand: %s", g_itemData[g_ego.m_equipment.m_iHand_L].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 18, TCOD_BKGND_NONE, "2) R Hand: %s", g_itemData[g_ego.m_equipment.m_iHand_R].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 19, TCOD_BKGND_NONE, "3) Head:   %s", g_itemData[g_ego.m_equipment.m_iHead].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 20, TCOD_BKGND_NONE, "4) L Ear:  %s", g_itemData[g_ego.m_equipment.m_iEar_L].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 21, TCOD_BKGND_NONE, "5) R Ear:  %s", g_itemData[g_ego.m_equipment.m_iEar_R].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 22, TCOD_BKGND_NONE, "6) Face:   %s", g_itemData[g_ego.m_equipment.m_iFace].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 23, TCOD_BKGND_NONE, "7) Neck:   %s", g_itemData[g_ego.m_equipment.m_iNeck].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 24, TCOD_BKGND_NONE, "8) Back:   %s", g_itemData[g_ego.m_equipment.m_iBack].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 25, TCOD_BKGND_NONE, "9) Chest:  %s", g_itemData[g_ego.m_equipment.m_iChest].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 26, TCOD_BKGND_NONE, "0) Hands:  %s", g_itemData[g_ego.m_equipment.m_iHands].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 27, TCOD_BKGND_NONE, "a) Waist:  %s", g_itemData[g_ego.m_equipment.m_iWaist].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 28, TCOD_BKGND_NONE, "b) Legs:   %s", g_itemData[g_ego.m_equipment.m_iLegs].m_stats.m_cName);
+	TCOD_console_print_left(NULL, 76, 29, TCOD_BKGND_NONE, "c) Feet:   %s", g_itemData[g_ego.m_equipment.m_iFeet].m_stats.m_cName);
 
 	return;
 }

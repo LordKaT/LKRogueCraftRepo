@@ -111,3 +111,29 @@ void itemFunc_HiddenDoor(int iAction, int iX, int iY, void *vUserData) {
 		consoleAdd("*THUD*");
 	return;
 }
+
+void itemFunc_Weapon(int iAction, int iX, int iY, void *vUserData) {
+	int iData = (int)(vUserData);
+	if (iAction == ACT_EQUIP) {
+		if (g_ego.m_equipment.m_iHand_R == ITEM_NOTHING) {
+			g_ego.m_equipment.m_iHand_R = iData;
+			inventoryDel(&g_ego.m_inventory, iData, 1);
+			itemAdjustStats(iData, true);
+			consoleAdd("You wield %s", g_itemData[iData].m_stats.m_cName);
+		}
+		else if (g_ego.m_equipment.m_iHand_L == ITEM_NOTHING) {
+			g_ego.m_equipment.m_iHand_L = iData;
+			inventoryDel(&g_ego.m_inventory, iData, 1);
+			itemAdjustStats(iData, true);
+			consoleAdd("You wield %s", g_itemData[iData].m_stats.m_cName);
+		}
+		else {
+			consoleAdd("Must have an empty hand first!");
+		}
+	}
+	if (iAction== ACT_DEQUIP) {
+		inventoryAdd(&g_ego.m_inventory, iData, 1);
+		itemAdjustStats(iData, false);
+	}
+	return;
+}

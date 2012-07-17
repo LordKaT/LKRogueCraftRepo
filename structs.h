@@ -4,32 +4,43 @@
 struct sStats {
 	char m_cName[128];
 	int m_iASCII;
-	// Hit points
+
+	int m_iRace;
+	int m_iSex;
+	int m_iJob;
+
+	int m_iLevel;
+	int m_iExp;
+
+	/* Hit points */
 	int m_iHP;
 	int m_iMaxHP;
-	// Skill points
+
+	/* Skill points */
 	int m_iSP;
 	int m_iMaxSP;
-	// Stats
-	int m_iStr;	// Strength
-	int m_iDex;	// Dexterity
-	int m_iAgl;	// Agility
-	int m_iCha;	// Charisma
-	int m_iWis;	// Wisdom
-	int m_iInt;	// Intelligence
-	int m_iAtk;	// Attack power
-	int m_iDef;	// Defense power
+
+	/*  Stats */
+	int m_iStr;	/* Strength */
+	int m_iDex;	/* Dexterity */
+	int m_iAgl;	/* Agility */
+	int m_iCha;	/* Charisma */
+	int m_iWis;	/* Wisdom */
+	int m_iInt;	/* Intelligence */
+	int m_iAtk;	/* Attack power */
+	int m_iDef;	/* Defense power */
+	int m_iSpeed; /* Determines Order of Operations */
 
 	int m_iWorldX;
 	int m_iWorldY;
 	int m_iWorldZ;
 
-	bool m_bWalkable;					// Can the character walk on this?
-	bool m_bTransparent;				// Can the character see through this?
-	int m_iFOV;							// Field of View (if obj creates visibility)
+	bool m_bWalkable;					/* Can the character walk on this? */
+	bool m_bTransparent;				/* Can the character see through this? */
+	int m_iFOV;							/* Field of View (if obj distorts visibility) */
 
-	TCOD_color_t m_tcodVisibleColor;	// Color in FOV
-	TCOD_color_t m_tcodHiddenColor;		// Color not in FOV
+	TCOD_color_t m_tcodVisibleColor;	/* Color in FOV */
+	TCOD_color_t m_tcodHiddenColor;		/* Color not in FOV */
 };
 
 struct sEquip {
@@ -87,8 +98,13 @@ struct sCraftingFormula {
 
 struct sNPCData {
 	int m_iID;
-	sEgoData m_ego;
-	void (*m_vFunc)(int iAction, int iX, int iY, void *vUserdata);
+	sStats m_stats;
+	sEquip m_equipment;
+	sInventory *m_inventory;
+	int m_iVisibility;
+	float m_fFOVDistance;
+	void (*m_vFunc)(int iAction, int iX, int iY, void *vUserData); // Callback
+	int m_iUID; // Internal unique identifier, for counting purposes.
 };
 
 struct sNPCMemory {
@@ -100,6 +116,12 @@ struct sNPCMemory {
 struct sNPCList {
 	sNPCData m_npcData;
 	struct sNPCList *next;
+};
+
+struct sNPCMap {
+	int m_iID;
+	int m_iUID;
+	sNPCData *npc;
 };
 
 struct sILightmap {

@@ -7,3 +7,4 @@ void itemFunc_FireCrystal(int iAction, int iX, int iY, void *vUserData);
 void itemFunc_Door(int iAction, int iX, int iY, void *vUserData);
 void itemFunc_Torch(int iAction, int iX, int iY, void *vUserData);
 void itemFunc_HiddenDoor(int iAction, int iX, int iY, void *vUserData);
+void itemFunc_Weapon(int iAction, int iX, int iY, void *vUserData);

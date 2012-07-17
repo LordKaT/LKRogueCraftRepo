@@ -45,15 +45,32 @@
 #define ACT_ENGINE_CREATE	500		/* Game engine created object. */
 #define ACT_ENGINE_POPULATE	501		/* Populate with item. */
 #define ACT_ACTIVATE		1000
+#define ACT_NPC_INIT		5000
+#define ACT_NPC_THINK		5001
+#define ACT_NPC_DEATH		5002
+#define ACT_NPC_DELETE		5999
 
 
-#define MODE_GAME			0
-#define MODE_BLOCK			1
-#define MODE_INV			2
-#define MODE_OPEN			3
-#define MODE_EQUIP			4
-#define MODE_DEQUIP			5
-#define MODE_LOOK			6
-#define MODE_CONSOLE_INPUT	10
+#define MODE_INTRO			0
+#define MODE_GAME			1
+#define MODE_BLOCK			2
+#define MODE_INV			3
+#define MODE_OPEN			4
+#define MODE_EQUIP			5
+#define MODE_DEQUIP			6
+#define MODE_LOOK			7
+#define MODE_CONSOLE_INPUT	8
+
+#define RACE_NONE			0
+#define RACE_HUMAN			1
+
+#define SEX_NONE			0
+#define SEX_MALE			1
+#define SEX_FEMALE			2
+#define SEX_SEXLESS			3
+#define SEX_BOTH			4
+
+#define JOB_NONE			0
+#define JOB_WARRIOR			1
 
 #endif

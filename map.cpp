@@ -77,19 +77,31 @@ void mapDraw() {
 			if (TCOD_map_is_in_fov(g_tcodMap, x, y)) {
 				g_bVisible[x][y] = true;
 				TCOD_console_put_char(NULL, x, y, g_itemData[g_iWorld[x][y]].m_stats.m_iASCII, TCOD_BKGND_NONE);
+				if (g_npcMap[x][y] != NULL)
+					TCOD_console_put_char(NULL, x, y, g_npcMap[x][y]->m_stats.m_iASCII, TCOD_BKGND_NONE);
 				if (iTempX > -1 && iTempY > -1) {
-					tcodToColor = TCOD_color_lerp(g_itemData[g_iWorld[x][y]].m_stats.m_tcodVisibleColor, tcodLight, (float)0.4);
-					TCOD_console_set_back(NULL, x, y, tcodToColor, TCOD_BKGND_SET);
+					if (g_npcMap[x][y] == NULL) {
+//						tcodToColor = TCOD_color_lerp(g_npcMap[x][y]->m_stats.m_tcodVisibleColor, tcodLight, (float)0.4);
+						tcodToColor = TCOD_color_lerp(g_itemData[g_iWorld[x][y]].m_stats.m_tcodVisibleColor, tcodLight, (float)0.4);
+						TCOD_console_set_back(NULL, x, y, tcodToColor, TCOD_BKGND_SET);
+					}
 				}
 				else {
 					TCOD_console_set_back(NULL, x, y, TCOD_black, TCOD_BKGND_SET);
 				}
 				TCOD_console_set_fore(NULL, x, y, g_itemData[g_iWorld[x][y]].m_stats.m_tcodVisibleColor);
+				if (g_npcMap[x][y] != NULL)
+					TCOD_console_set_fore(NULL, x, y, g_npcMap[x][y]->m_stats.m_tcodVisibleColor);
 			}
 			else if (g_bVisible[x][y] == true) {
 				TCOD_console_set_back(NULL, x, y, TCOD_black, TCOD_BKGND_SET);
 				TCOD_console_put_char(NULL, x, y, g_itemData[g_iWorld[x][y]].m_stats.m_iASCII, TCOD_BKGND_NONE);
 				TCOD_console_set_fore(NULL, x, y, g_itemData[g_iWorld[x][y]].m_stats.m_tcodHiddenColor);
+/*				if (g_npcMap[x][y] != NULL) {
+					TCOD_console_put_char(NULL, x, y, g_npcMap[x][y]->m_stats.m_iASCII, TCOD_BKGND_NONE);
+					TCOD_console_set_fore(NULL, x, y, g_npcMap[x][y]->m_stats..m_tcodHiddenColor);
+				}
+*/
 			}
 		}
 	}
@@ -114,7 +126,8 @@ void mapClearLightmap() {
 	}
 }
 
-/*	I am writing this function in a way intended to piss you off. 
+/*
+**	I am writing this function in a way intended to piss you off. 
 **	It is a testament to what happens when you don't plan properly,
 **		and, instead, cobble functions together as you go.
 **

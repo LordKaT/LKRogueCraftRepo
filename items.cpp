@@ -14,48 +14,54 @@
 #include "inventory.h"
 
 sItemData g_itemData[] = {
-	{0,		{"Nothing",			0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	TCOD_black,	TCOD_black}, itemFunc_Floor},	// 0
+	{0,		{"Nothing",			0,		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	TCOD_black,	TCOD_black}, itemFunc_Floor},	// 0
 
-	{1,		{"Stone Wall",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_light_grey,	TCOD_dark_grey}, itemFunc_Ore}, // 1
-	{2,		{"Stone Wall",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_light_grey,	TCOD_dark_grey}, itemFunc_Ore},	// 2
-	{3,		{"Stone Wall",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_light_grey,	TCOD_dark_grey}, itemFunc_Ore},	// 3
+	{1,		{"Stone Wall",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_light_grey,	TCOD_dark_grey}, itemFunc_Ore}, // 1
+	{2,		{"Stone Wall",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_light_grey,	TCOD_dark_grey}, itemFunc_Ore},	// 2
+	{3,		{"Stone Wall",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_light_grey,	TCOD_dark_grey}, itemFunc_Ore},	// 3
 
-	{4,		{"Iron Ore",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_orange,	TCOD_orange},	itemFunc_Ore},	// 4
-	{5,		{"Iron Ore",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_orange,	TCOD_orange},	itemFunc_Ore},	// 5
-	{6,		{"Iron Ore",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_orange,	TCOD_orange},	itemFunc_Ore},	// 6
+	{4,		{"Iron Ore",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_orange,	TCOD_orange},	itemFunc_Ore},	// 4
+	{5,		{"Iron Ore",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_orange,	TCOD_orange},	itemFunc_Ore},	// 5
+	{6,		{"Iron Ore",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_orange,	TCOD_orange},	itemFunc_Ore},	// 6
 
-	{7,		{"Copper Ore",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Ore},	// 7
-	{8,		{"Copper Ore",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Ore},	// 8
-	{9,		{"Copper Ore",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Ore},	// 9
+	{7,		{"Copper Ore",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Ore},	// 7
+	{8,		{"Copper Ore",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Ore},	// 8
+	{9,		{"Copper Ore",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Ore},	// 9
 
-	{10,	{"Silver Ore",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_silver,	TCOD_silver},	itemFunc_Ore},	// 10
-	{11,	{"Silver Ore",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_silver,	TCOD_silver},	itemFunc_Ore},	// 11
-	{12,	{"Silver Ore",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_silver,	TCOD_silver},	itemFunc_Ore},	// 12
+	{10,	{"Silver Ore",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_silver,	TCOD_silver},	itemFunc_Ore},	// 10
+	{11,	{"Silver Ore",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_silver,	TCOD_silver},	itemFunc_Ore},	// 11
+	{12,	{"Silver Ore",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_silver,	TCOD_silver},	itemFunc_Ore},	// 12
 
-	{13,	{"Gold Ore",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_gold,	TCOD_gold},	itemFunc_Ore},	// 13
-	{14,	{"Gold Ore",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_gold,	TCOD_gold},	itemFunc_Ore},	// 14
-	{15,	{"Gold Ore",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_gold,	TCOD_gold},	itemFunc_Ore},	// 15
+	{13,	{"Gold Ore",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_gold,	TCOD_gold},	itemFunc_Ore},	// 13
+	{14,	{"Gold Ore",		177,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	TCOD_gold,	TCOD_gold},	itemFunc_Ore},	// 14
+	{15,	{"Gold Ore",		176,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	true,	0,	TCOD_gold,	TCOD_gold},	itemFunc_Ore},	// 15
 
-	{16,	{"Stick",			179,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	true,	false,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Stick},					// 16
-	{17,	{"Fire Crystal",	7,		-2,	-2, -2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	true,	false,	0,	TCOD_light_red,	TCOD_light_red},	itemFunc_FireCrystal},	// 17
+	{16,	{"Stick",			179,	0,	0,	0,	0,	0,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	2,	0,	true,	false,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Stick},					// 16
+	{17,	{"Fire Crystal",	7,		0,	0,	0,	0,	0,	-2,	-2, -2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	-2,	0,	true,	false,	0,	TCOD_light_red,	TCOD_light_red},	itemFunc_FireCrystal},	// 17
 
-	{18,	{"Closed Door",		219,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
-	{19,	{"Open Door",		224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
+	{18,	{"Closed Door",		219,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	false,	false,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
+	{19,	{"Open Door",		224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
 
-	{20,	{"Test 1",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
-	{21,	{"Test 2",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
-	{22,	{"Test 3",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
-	{23,	{"Test 4",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
-	{24,	{"Test 5",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
+	{20,	{"Test 1",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
+	{21,	{"Test 2",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
+	{22,	{"Test 3",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
+	{23,	{"Test 4",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
+	{24,	{"Test 5",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
 
-	{25,	{"Torch (lit)",		173,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	5,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Torch},
-	{26,	{"Torch (out)",		173,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Torch},
+	{25,	{"Torch (lit)",		173,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	5,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Torch},
+	{26,	{"Torch (out)",		173,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_Torch},
 
-	{27,	{"Stone Wall",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_HiddenDoor},
+	{27,	{"Stone Wall",		178,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	TCOD_dark_orange,	TCOD_dark_orange},	itemFunc_HiddenDoor},
 
-	{999998,	{"You",			64,		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	5,	TCOD_black,	TCOD_black},	itemFunc_Empty},
+	{28,	{"Test 7",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
+	{29,	{"Test 6",			224,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Door},
 
-	{999999,	{"(END)",		0,		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	TCOD_black,	TCOD_black},	itemFunc_Error},	// Last item item in the list.
+	{30,	{"Wooden Stick",	0,		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Weapon},
+	{31,	{"Rock",			0,		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	1,	0,	0,	0,	0,	0,	true,	true,	0,	{139, 69, 19},	{139, 69, 19},},	itemFunc_Weapon},
+
+	{999998,	{"You",			64,		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	5,	TCOD_black,	TCOD_black},	itemFunc_Empty},
+
+	{999999,	{"(END)",		0,		0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	true,	true,	0,	TCOD_black,	TCOD_black},	itemFunc_Error},	// Last item item in the list.
 };
 
 // ITEM_NOTHING in either slot is a special case.
@@ -325,17 +331,39 @@ void itemPopulate(int iItemID, int iAmount, int iPercentage, int iIterations) {
 	for (int i = 0; i < iIterations; i++) {
 		if (rand() % 100 <= iPercentage) {
 			/* Repalce the stone for ore. */
-			if (iItemID < ITEM_DOOR_CLOSED && g_iWorld[iX][iY] == ITEM_ORE_STONE)
-				g_iWorld[iX][iY] = iItemID;
-			/* We don't want to populate these items in doors/walls. */
-			if (g_iWorld[iX][iY] == ITEM_NOTHING || g_iWorld[iX][iY] > ITEM_DOOR_OPEN ) {
-				inventoryAdd(&g_inventoryWorldList[iX][iY], iItemID, iAmount);
-				g_iWorld[iX][iY] = iItemID;
+			if (iItemID < ITEM_DOOR_CLOSED) {
+				if (g_iWorld[iX][iY] == ITEM_ORE_STONE)
+					g_iWorld[iX][iY] = iItemID;
+			}
+			else {
+				/* We don't want to populate these items in doors/walls. */
+				if (g_iWorld[iX][iY] == ITEM_NOTHING || g_iWorld[iX][iY] > ITEM_DOOR_OPEN ) {
+					inventoryAdd(&g_inventoryWorldList[iX][iY], iItemID, iAmount);
+					g_iWorld[iX][iY] = iItemID;
+				}
 			}
 		}
 		iX = rand() % DEF_WORLD_X;
 		iY = rand() % DEF_WORLD_Y;
 	}
 
+	return;
+}
+
+void itemAdjustStats(int iItemID, bool bEquip) {
+	int iMult = 1;
+	if (!bEquip) iMult = -1;
+	g_ego.m_stats.m_iHP += g_itemData[iItemID].m_stats.m_iHP * iMult;
+	g_ego.m_stats.m_iMaxHP += g_itemData[iItemID].m_stats.m_iMaxHP * iMult;
+	g_ego.m_stats.m_iSP += g_itemData[iItemID].m_stats.m_iSP * iMult;
+	g_ego.m_stats.m_iMaxSP += g_itemData[iItemID].m_stats.m_iMaxSP * iMult;
+	g_ego.m_stats.m_iStr += g_itemData[iItemID].m_stats.m_iStr * iMult;
+	g_ego.m_stats.m_iDex += g_itemData[iItemID].m_stats.m_iDex * iMult;
+	g_ego.m_stats.m_iAgl += g_itemData[iItemID].m_stats.m_iAgl * iMult;
+	g_ego.m_stats.m_iCha += g_itemData[iItemID].m_stats.m_iCha * iMult;
+	g_ego.m_stats.m_iWis += g_itemData[iItemID].m_stats.m_iWis * iMult;
+	g_ego.m_stats.m_iInt += g_itemData[iItemID].m_stats.m_iInt * iMult;
+	g_ego.m_stats.m_iAtk += g_itemData[iItemID].m_stats.m_iAtk * iMult;
+	g_ego.m_stats.m_iDef += g_itemData[iItemID].m_stats.m_iDef * iMult;
 	return;
 }
